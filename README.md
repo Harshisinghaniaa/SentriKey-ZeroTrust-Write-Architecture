@@ -77,14 +77,14 @@ Write Nothing. Trust Everything.
 
 
 ## Security Considerations
-If ransomware gains admin privileges on the OS, what prevents it from bypassing your write gate or disabling your monitoring engine?”
+1. If ransomware gains admin privileges on the OS, what prevents it from bypassing your write gate or disabling your monitoring engine?”
 
 SentriKey is designed with layered enforcement. Even if the OS is compromised, write activation requires hardware validation and time-bound session control. The monitoring engine operates alongside write-session logic rather than as a separate optional service. While no system can claim absolute immunity, the architecture significantly reduces attack feasibility by removing persistent write access as a default state.
 
-Behavioral anomaly detection can cause false positives. What happens if your system wrongly revokes write access during legitimate high-volume operations?”
+2. Behavioral anomaly detection can cause false positives. What happens if your system wrongly revokes write access during legitimate high-volume operations?”
 
 The anomaly detection layer is threshold-based and tuned for abnormal entropy spikes and rapid bulk renaming patterns typical of encryption behavior. In enterprise deployments, thresholds can be calibrated per environment. In case of false positives, the system only revokes the time-bound write session not system access and allows re-authentication. The design prioritizes containment while minimizing operational disruption.
 
-Why can’t this be implemented purely in software without hardware?”
+3. Why can’t this be implemented purely in software without hardware?”
 
 Software-only systems enforce policies within the same execution layer that ransomware can compromise. By introducing hardware-gated activation, we create a physical dependency for write privilege escalation. This increases the attack cost significantly and reduces reliance on credential-based trust alone. Hardware acts as an additional root of verification rather than a replacement for software controls.
