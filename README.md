@@ -1,5 +1,8 @@
 # SentriKey – Hardware-Enforced Zero-Trust Write Architecture
 
+AMD Slingshot Hackathon Submission  
+AI + Cybersecurity and Privacy
+
 ## Overview
 
 SentriKey is a ransomware risk-reduction architecture that redefines how write access is granted and monitored. 
